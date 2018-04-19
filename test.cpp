@@ -5,11 +5,7 @@
 using  half_second = std::chrono::duration< int, std::ratio<1,2> >;
 
 int main(int argc, char ** argp, char  ** envp){
-/*	for(auto env = envp; *env!=nullptr;env++){
-		if( strstr(*env,"LINES") != 0 );
-			std::cout << *env << std::endl;
-	}
-*/
+
 //Check foregrounds
 	Term::TermSize::update();
 	for(char color{ char(Term::Colors::color::white) }; 
