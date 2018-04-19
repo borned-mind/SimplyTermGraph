@@ -5,4 +5,10 @@ project(${NAME_PROJECT})
 
 set(SOURCE_LIB term.cpp)
 
-add_library(stg SHARED ${SOURCE_LIB})
+if( DEFINED $ENV{LIBSHARED} )
+	add_library(stg SHARED ${SOURCE_LIB})
+else()
+	add_library(stg STATIC ${SOURCE_LIB})
+endif()
+
+
