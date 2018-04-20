@@ -11,11 +11,19 @@ namespace Term{
 	using byte = char;
 	using ubyte = unsigned byte;
 	using ushort = unsigned short;
+	using uint = unsigned int;
+
+
+	struct position{
+		short x;
+		short y;
+		position(short x, short y) : x(x), y(y) {}
+	};
 
 	namespace TermSize{
 		static struct winsize ws;
 
-		void update(void);
+		void update(void) noexcept;
 
 		unsigned int getLines(void);
 		unsigned int getColumns(void);
@@ -91,23 +99,34 @@ namespace Term{
 		constexpr const char setchar = '\033';
 
 
-		void setColor(Colors::color color=Colors::color::black, bool background=false, Font::style style=Font::style::normal);
-		void set_default_color(void) __attribute__( (destructor) );
-		void fill_screen(Colors::color color=Colors::color::black);
+		void setColor(Colors::color color=Colors::color::black, bool background=false, Font::style style=Font::style::normal) noexcept;
+		void set_default_color(void) noexcept __attribute__( (destructor) ) ;
+		void fill_screen(Colors::color color=Colors::color::black) noexcept;
 		
 	}
 
 	namespace Cursor{
-		void set(ushort x, ushort y);
-		void move_up(ushort y);
-		void move_down(ushort y);
-		void move_forward(ushort x);
-		void move_backward(ushort x);
-		void restore(void);
-		void save(void);
+		void set(short x, short y) noexcept;
+		void move_up(ushort y) noexcept;
+		void move_down(ushort y) noexcept;
+		void move_forward(ushort x) noexcept;
+		void move_backward(ushort x) noexcept;
+		void restore(void) noexcept;
+		void save(void) noexcept;
 	}
 
-	void clear_screen(void);
+	namespace draw{
+		void line(uint x, uint y, uint x1, uint y1, char ch='#');
+		void rect(uint x, uint y, uint x1, uint y1, char ch='#');
+
+		void pixel(uint x, uint y, char ch='#');
+		void pixel(position pos, char ch='#');
+
+		void circle(short x, short y, short rad, char ch='#');
+		void circle(position center, uint rad, char ch='#');
+	}
+
+	void clear_screen(void) noexcept;
 
 }
 
