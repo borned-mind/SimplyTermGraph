@@ -81,7 +81,17 @@ int main(int argc, char ** argp, char  ** envp){
 	msg_debug("Check line");
 	Term::draw::line(0,0, 100, 100 );
 
-	msg_debug("Check circle");
-	Term::draw::circle( 30,20, 9); // TODO: fix
+	msg_debug("Check curve");
+	//std::initializer_list<std::pair<short, short> > list = { {50,50},{60,60},{30,90} } ;
+	std::vector< Term::position > list { {50,50},{90,60},{30,90},{0,0} };
+	Term::draw::curve(list);
 
+	msg_debug("Check rect");
+	Term::draw::rect(60,60,30,30);
+
+	msg_debug("Check circle");	
+	Term::draw::circle( 50, 50, 10 );  // TODO: fix
+
+
+	
 }

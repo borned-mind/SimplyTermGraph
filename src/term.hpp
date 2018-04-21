@@ -4,6 +4,10 @@
 #include<string>
 #include<sys/ioctl.h>
 #include<unistd.h>
+#include<utility>
+			#include<chrono>
+			#include<thread>
+#include<vector>
 #include"utils.hpp"
 
 
@@ -115,16 +119,7 @@ namespace Term{
 		void save(void) noexcept;
 	}
 
-	namespace draw{
-		void line(uint x, uint y, uint x1, uint y1, char ch='#');
-		void rect(uint x, uint y, uint x1, uint y1, char ch='#');
-
-		void pixel(uint x, uint y, char ch='#');
-		void pixel(position pos, char ch='#');
-
-		void circle(short x, short y, short rad, char ch='#');
-		void circle(position center, uint rad, char ch='#');
-	}
+	
 
 	void clear_screen(void) noexcept;
 

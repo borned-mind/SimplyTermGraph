@@ -83,61 +83,7 @@ namespace Term{
 		}
 	}
 
-namespace draw{
-	void line(uint x, uint y, uint x1, uint y1, char ch){
-		
-		
-		while(x != x1 || y!=y1){
-			Cursor::set(x,y);
-			std::cout << ch;
 
-			if(x != x1)
-				x > x1 ? x-- : x++;
-			if(y != y1)
-				y > y1 ? y-- : y++;
-		}
-	}
-
-
-	void pixel(uint x, uint y, char ch){
-		Cursor::set(x,y);
-		std::cout << ch ;
-	}
-
-	void pixel(position pos, char ch){
-		pixel(pos.x, pos.y, ch);
-	}
-
-
-	void circle(short x, short y, short rad, char ch){
-		short xt = 0, radt=rad;
-		while(radt != -rad+1 ){
-			pixel(x-xt,y+radt);
-			pixel(x+xt,y+radt);
-			radt--;
-			radt > 0 ? xt++ : xt--;
-		}
-	}
-
-	void circle(position center, uint rad, char ch){
-		circle(center.x, center.y, rad, ch);
-	}
-	
-	void rect(uint x, uint y, uint x1, uint y1, char ch){
-
-		while(y!=y1){
-			Cursor::set(x,y);
-
-			line(x, y, x1, y);			
-			//for(auto xt=x; xt!=x1; (xt > x1 ? xt-- : xt++) )
-
-			
-			if(y != y1)
-				y > y1 ? y-- : y++;
-		}
-	
-	}
-}//namespace Draw
 
 
 }

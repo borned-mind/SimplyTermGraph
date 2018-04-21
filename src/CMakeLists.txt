@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(${NAME_PROJECT})
 
-set(SOURCE_LIB term.cpp menu.cpp)
+set(SOURCE_LIB term.cpp menu.cpp Draw.cpp)
 
 if( DEFINED $ENV{LIBSHARED} )
 	add_library(stg SHARED ${SOURCE_LIB})
