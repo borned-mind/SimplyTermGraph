@@ -8,7 +8,7 @@ namespace Term{
 		void pixel(uint x, uint y, char ch='#');
 		void pixel(position pos, char ch='#');
 
-		void circle(short x, short y, short rad, char ch='#');
+		void circle(short, short, short rad, char ch='#');
 		void circle(position center, uint rad, char ch='#');
 
 		[[deprecated("You can use vector for it")]] void curve( std::initializer_list< std::pair<short,short> > );

@@ -25,13 +25,29 @@ namespace Term{
 	}
 
 
-	void circle(short x, short y, short rad, char ch){
-		short xt = 0, radt=rad;
-		while(radt != -rad+1 ){
-			pixel(x-xt,y+radt);
-			pixel(x+xt,y+radt);
-			radt--;
-			radt > 0 ? xt++ : xt--;
+	void circle(short x0, short y0, short radius, char ch){
+		//get from web Brehman
+		short x = 0,  y = radius, delta = 1 - 2 * radius, error = 0  ;
+		while(y >= 0) {
+			pixel(x0 + x, y0 + y, ch);
+			pixel(x0 + x, y0 - y, ch);
+			pixel(x0 - x, y0 + y, ch);
+			pixel(x0 - x, y0 - y, ch);
+			error = 2 * (delta + y) - 1;
+			if(delta < 0 && error <= 0) {
+				++x;
+				delta += 2 * x + 1;
+				continue;
+			}
+			error = 2 * (delta - x) - 1;
+			if(delta > 0 && error > 0) {
+				--y;
+				delta += 1 - 2 * y;
+				continue;
+			}
+			++x;
+			delta += 2 * (x - y);
+			--y;
 		}
 
 	}

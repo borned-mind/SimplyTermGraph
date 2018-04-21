@@ -90,7 +90,7 @@ int main(int argc, char ** argp, char  ** envp){
 	Term::draw::rect(60,60,30,30);
 
 	msg_debug("Check circle");	
-	Term::draw::circle( 50, 50, 10 );  // TODO: fix
+	Term::draw::circle( 50, 50, 10 );
 
 
 	
